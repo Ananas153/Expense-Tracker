@@ -5,8 +5,12 @@ import java.util.ArrayList;
 public class ExpenseManager {
     private ArrayList<Expense> listOfExpenses;
 
-    public ExpenseManager() {
-        this.listOfExpenses = new ArrayList<Expense>();
+    public ExpenseManager(ArrayList<Expense> expenseArrayList) {
+        this.listOfExpenses = expenseArrayList;
+    }
+
+    public ArrayList<Expense> getListOfExpenses() {
+        return this.listOfExpenses;
     }
 
     public void addExpense(Expense expense) {
@@ -23,11 +27,15 @@ public class ExpenseManager {
         }
     }
 
-    public double summary(){
+    public double summary() {
         double sum = 0;
-        for(Expense expense : this.listOfExpenses){
+        for (Expense expense : this.listOfExpenses) {
             sum += expense.getAmount();
         }
         return sum;
+    }
+
+    public int counterExpense() {
+        return this.listOfExpenses.size();
     }
 }

@@ -23,6 +23,14 @@ public class Expense {
         return id;
     }
 
+    public LocalDate getPurchasedDate() {
+        return purchasedDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return "Expense{" +
