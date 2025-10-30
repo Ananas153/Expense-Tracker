@@ -21,8 +21,9 @@ of the project.
 
 ## Minor inconvenience:
 For now the update feature require all of the flag.
+After deleting an expense in an existing list, then add a new expense, the new expense have the same ID as an already item. 
 
 ## Possible Improuvement:
   1. Make the requirement for flag in Update feature optional.
   2. Improve the error and edges cases handling, can't just all make them in Main class (I guess).
-  3. Add filter by categories feature. 
+  3. Add filter by categories feature.
