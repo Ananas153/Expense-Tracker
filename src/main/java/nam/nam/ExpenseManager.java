@@ -18,6 +18,10 @@ public class ExpenseManager {
         listOfExpenses.add(expense);
     }
 
+    public void updateExpense(int id,Expense expense){
+        listOfExpenses.set(id - 1, expense);
+    }
+
     public void deleteExpense(int id) {
         listOfExpenses.removeIf(expense -> expense.getId() == id);
     }

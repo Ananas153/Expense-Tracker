@@ -22,7 +22,7 @@ public class ExpenseStorage {
                 String description = values[2];
                 double amount = Double.parseDouble(values[3]);
 
-                Expense expense = new Expense(id, date, amount, description);
+                Expense expense = new Expense(id, date, description, amount);
                 expenses.add(expense);
             }
         } catch (IOException e) {

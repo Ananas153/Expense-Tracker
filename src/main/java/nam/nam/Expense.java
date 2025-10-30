@@ -5,10 +5,10 @@ import java.time.LocalDate;
 public class Expense {
     private int id;
     private LocalDate purchasedDate;
-    private double amount;
     private String description;
+    private double amount;
 
-    public Expense(int id, LocalDate purchasedDate, double amount, String description) {
+    public Expense(int id, LocalDate purchasedDate, String description, double amount) {
         this.id = id;
         this.purchasedDate = purchasedDate;
         this.amount = amount;

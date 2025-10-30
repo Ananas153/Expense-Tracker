@@ -16,11 +16,12 @@ public class Main {
             case "add":
                 if (!args[1].equals("--description") || !args[3].equals("--amount")) {
                     System.out.println("Wrong flag, use both --description and --amount to add value");
+                    break;
                 }
-                Expense expenseAdd = new Expense(expenseManager.counterExpense() + 1, LocalDate.now(), Double.parseDouble(args[4]), args[2]);
+                Expense expenseAdd = new Expense(expenseManager.counterExpense() + 1, LocalDate.now(), args[2], Double.parseDouble(args[4]));
                 expenseManager.addExpense(expenseAdd);
                 ExpenseStorage.saveToCSV(FILE_PATH, expenseManager.getListOfExpenses());
-                System.out.println("Expense added successfully (ID:" + expenseAdd.getId() + ")");
+                System.out.println("Expense added successfully (ID: " + expenseAdd.getId() + ")");
                 break;
             case "list":
                 expenseManager.listExpenses();
@@ -37,9 +38,20 @@ public class Main {
                     }
                 }
                 break;
+            case "update":
+                if (!args[1].equals("--id") || !args[3].equals("--date") || !args[5].equals("--description") || !args[7].equals("--amount")) {
+                    System.out.println("Wrong flag, use --id, --date, --description, and --amount to change value");
+                    break;
+                }
+                Expense updateExpense = new Expense(Integer.parseInt(args[2]), LocalDate.parse(args[4]), args[6], Double.parseDouble(args[8]));
+                expenseManager.updateExpense(Integer.parseInt(args[2]), updateExpense);
+                ExpenseStorage.saveToCSV(FILE_PATH, expenseManager.getListOfExpenses());
+                System.out.println("Expense updated successfully");
+                break;
             case "delete":
                 if (!args[1].equals("--id")) {
                     System.out.println("Wrong flag, use --id to select the expense to delete");
+                    break;
                 }
                 if (Integer.parseInt(args[2]) > 0 && Integer.parseInt(args[2]) <= expenseManager.counterExpense()) {
                     expenseManager.deleteExpense(Integer.parseInt(args[2]));
@@ -47,6 +59,7 @@ public class Main {
                     System.out.println("Expense deleted successfully");
                 } else {
                     System.out.println("ID out of bound");
+                    break;
                 }
                 break;
         }
