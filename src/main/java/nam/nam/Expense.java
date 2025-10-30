@@ -33,11 +33,6 @@ public class Expense {
 
     @Override
     public String toString() {
-        return "Expense{" +
-                "id=" + id +
-                ", purchasedDate=" + purchasedDate +
-                ", description='" + description +
-                ", amount=" + amount + '\'' +
-                '}';
+        return id + "\t" + purchasedDate + "\t" + description + "\t\t$" + amount;
     }
 }
