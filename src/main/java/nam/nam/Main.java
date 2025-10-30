@@ -39,6 +39,10 @@ public class Main {
                 }
                 break;
             case "update":
+                if (args.length != 9) {
+                    System.out.println("Flag missing, command to follow:\n\t update --id <item id> --date <date format YYYY-MM-dd> --description <\"description\"> --amount <$$$>");
+                    break;
+                }
                 if (!args[1].equals("--id") || !args[3].equals("--date") || !args[5].equals("--description") || !args[7].equals("--amount")) {
                     System.out.println("Wrong flag, use --id, --date, --description, and --amount to change value");
                     break;
